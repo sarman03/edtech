@@ -1,7 +1,15 @@
 import Image from "next/image";
 import React from "react";
 
-const courses = [
+interface Course {
+  title: string;
+  description: string[];
+  buttonLabel: string;
+  image: string;
+  alt: string;
+}
+
+const courses: Course[] = [
   {
     title: "System Design",
     description: ["title1", "title 1"],
@@ -25,19 +33,19 @@ const courses = [
   }
 ];
 
-const CohortCard: React.FC<{ course: any }> = ({ course }) => (
+const CohortCard: React.FC<{ course: Course }> = ({ course }) => (
   <div className="text-gray-800 dark:text-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform">
     <Image
-    src={course.image}
-    alt={course.title}
-    width={500}
-    height={300}
-    className="w-full h-48 object-cover"
-  />
+      src={course.image}
+      alt={course.alt}
+      width={500}
+      height={300}
+      className="w-full h-48 object-cover"
+    />
     <div className="p-4">
       <h3 className="text-lg font-bold mb-2">{course.title}</h3>
       <ul className="mb-4 space-y-1">
-        {course.description.map((desc: string, idx: number) => (
+        {course.description.map((desc, idx) => (
           <li key={idx} className="flex items-center">
             <svg
               className="w-4 h-4 mr-2 text-green-400"
