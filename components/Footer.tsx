@@ -7,8 +7,8 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-between items-center">
           <div className="w-full md:w-1/3 mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">Your Logo</h2>
-            <p className="text-sm">Empowering your digital journey.</p>
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">Logo</h2>
+            <p className="text-sm">Start your learning today.</p>
           </div>
           <div className="w-full md:w-1/3 mb-6 md:mb-0">
             <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-8 border-t border-gray-200 dark:border-zinc-700 pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Sarman.</p>
         </div>
       </div>
     </footer>

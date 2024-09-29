@@ -13,7 +13,7 @@ const HeroSection = () => {
         fill="blue"
       />
 
-      <div className='relative z-10 pt-14 w-full h-full flex flex-col items-center justify-center'>
+      <div className='relative z-5 pt-14 w-full h-full flex flex-col items-center justify-center'>
         <h1 className='text-4xl md:text-6xl font-bold text-center text-gray-800 dark:text-white mb-4'>
           Revolutionize Your
           <br />

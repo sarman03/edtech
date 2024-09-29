@@ -3,22 +3,25 @@ import React from "react";
 
 const courses = [
   {
-    title: "Course 1",
+    title: "System Design",
     description: ["title1", "title 1"],
     buttonLabel: "Buy Now",
-    image: "/images/hero.jpg", // Replace with actual image path
+    image: "",
+    alt: "Course 1" // Replace with actual image path
   },
   {
-    title: "course 1",
+    title: "RDBMS",
     description: ["title1", "title 1", "title1"],
     buttonLabel: "Buy Now",
-    image: "/images/hero.jpg", // Replace with actual image path
+    image: "",
+    alt: "Course 2" // Replace with actual image path
   },
   {
-    title: "Course 1",
+    title: "Live Consultancy",
     description: ["title1", "title1"],
     buttonLabel: "Buy Now",
-    image: "/images/hero.jpg", // Replace with actual image path
+    image: "",
+    alt: "Course 3" // Replace with actual image path
   }
 ];
 
