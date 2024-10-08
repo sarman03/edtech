@@ -4,12 +4,13 @@ import Faq from './Faq'
 import { Spotlight } from './ui/Spotlight'
 import Courses from './Courses'
 import Contact from './Contact'
+import Testimonial from './Testimonial'
 
 const HeroSection = () => {
   return (
     <div className='relative pt-20 mt-20 pb-20'>
       <Spotlight
-        className="-top-30 left-0 pl-4 md:left-60 md:-top-20"
+        className="-top-30 left-0 pl-4 md:left-40 md:-top-80"
         fill="blue"
       />
 
@@ -44,6 +45,11 @@ const HeroSection = () => {
       {/*faqs */}
       <div className='pt-4 mb-20 mt-24'>
         <Faq />
+      </div>
+
+      {/* testimonial*/}
+      <div>
+        <Testimonial />
       </div>
 
 
