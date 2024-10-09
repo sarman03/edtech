@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { testimonials } from './data'
 import { shuffle } from 'lodash'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import Image from 'next/image';
 
 const Testimonial = () => {
   const shuffledTestimonials = shuffle(testimonials)
@@ -25,7 +26,7 @@ const Testimonial = () => {
             <div key={idx} className="text-gray-800 dark:text-white p-4 rounded-lg shadow-md flex-shrink-0" style={{ height: '300px', width: 'calc(25% - 20px)' }}>
               <p className="mb-4">{testimonial.quote}</p>
               <div className="flex items-center">
-                <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 rounded-full mr-4" />
+                <Image src={testimonial.image} alt={testimonial.name} width={40} height={40} className="rounded-full mr-4" />
                 <div>
                   <h3 className="text-lg font-bold">{testimonial.name}</h3>
                   <p className="text-sm">{testimonial.position}</p>

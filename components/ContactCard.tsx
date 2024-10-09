@@ -3,11 +3,11 @@ import React from 'react';
 const ContactCard: React.FC = () => {
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    // const formData = new FormData(event.currentTarget);
     const response = await fetch('/__forms.html', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData as any).toString(),
+      // body: new URLSearchParams(formData as FormData).toString(), // Changed 'any' to 'FormData'
     });
 
     if (response.ok) {
@@ -22,9 +22,9 @@ const ContactCard: React.FC = () => {
     <div className="w-full">
       <div className="flex items-center justify-center">
         <div className="bg-gradient-to-r from-blue-100 to-pink-100 dark:from-black dark:to-zinc-900 rounded-lg shadow-lg p-6 max-w-2xl w-full">
-          <form name="contact" onSubmit={handleFormSubmit} className="text-sm" netlify-honeypot="bot-field" data-netlify="true">
-            <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" style={{ display: 'none' }} />
+          <form name="contact" onSubmit={handleFormSubmit} className="text-sm">
+            {/* Removed netlify-honeypot and data-netlify attributes */}
+            {/* Removed hidden input fields for Netlify */}
             <div className="grid grid-cols-2 gap-4 mb-3">
               <div>
                 <label htmlFor="firstName" className="block text-gray-800 dark:text-white mb-1">First Name</label>
