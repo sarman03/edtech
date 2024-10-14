@@ -4,7 +4,7 @@ import Faq from './Faq'
 import { Spotlight } from './ui/Spotlight'
 import Courses from './Courses'
 import Contact from './Contact'
-import Testimonial from './Testimonial'
+import { CardStackDemo} from './Testimonial'
 
 const HeroSection = () => {
   return (
@@ -35,7 +35,7 @@ const HeroSection = () => {
 
 
       {/*courses*/}
-      <div className='mt-20'>
+      <div className='mt-20 pt-10'>
         <Courses />
       </div>
 
@@ -43,18 +43,19 @@ const HeroSection = () => {
 
       
       {/*faqs */}
-      <div className='pt-4 mb-20 mt-24'>
+      <div className='pt-4 mb-6 mt-20'>
         <Faq />
       </div>
 
       {/* testimonial*/}
-      <div>
-        <Testimonial />
+      <div className='flex flex-col md:flex-row justify-center pt-8 mt-16'>
+        <h1 className='text-3xl pr-16 mr-16 pt-16 mt-6 text-gray-800 dark:text-white font-bold'>What do our students say</h1>
+        <div><CardStackDemo /></div>
       </div>
 
 
       {/*contact*/}
-      <div className='pt-4'>
+      <div className=''>
         <Contact />
       </div>
     </div>

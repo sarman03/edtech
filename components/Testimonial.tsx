@@ -1,46 +1,71 @@
-'use client'
-import React, { useState } from 'react'
-import { testimonials } from './data'
-import { shuffle } from 'lodash'
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
-
-const Testimonial = () => {
-  const shuffledTestimonials = shuffle(testimonials)
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  const handleNextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 5) % shuffledTestimonials.length)
-  }
-
-  const handlePrevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 5 + shuffledTestimonials.length) % shuffledTestimonials.length)
-  }
-
+"use client";
+import { CardStack } from "../components/ui/card-stack";
+import { cn } from "@/lib/utils";
+export function CardStackDemo() {
   return (
-    <div className="py-12">
-      <h2 className="text-3xl font-bold text-gray-800 dark:text-white text-center mb-8">What Our Students Say</h2>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex overflow-x-auto" style={{ scrollbarWidth: "none" }}>
-          {shuffledTestimonials.slice(currentSlide, currentSlide + 4).map((testimonial, idx) => (
-            <div key={idx} className="text-gray-800 dark:text-white p-4 rounded-lg shadow-md flex-shrink-0" style={{ height: '300px', width: 'calc(25% - 20px)' }}>
-              <p className="mb-4">{testimonial.quote}</p>
-              <div className="flex items-center">
-                <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 rounded-full mr-4" />
-                <div>
-                  <h3 className="text-lg font-bold">{testimonial.name}</h3>
-                  <p className="text-sm">{testimonial.position}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-end mt-4">
-          <button onClick={handlePrevSlide} className="text-gray-800 dark:text-white"><FaArrowLeft className="text-2xl" /></button>
-          <button onClick={handleNextSlide} className="text-gray-800 dark:text-white"><FaArrowRight className="text-2xl" /></button>
-        </div>
-      </div>
+    <div className="h-[25rem] w-full">
+      <CardStack items={CARDS} />
     </div>
-  )
+  );
 }
 
-export default Testimonial
+// Small utility to highlight the content of specific section of a testimonial content
+export const Highlight = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <span
+      className={cn(
+        "font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.1] dark:text-emerald-500 px-1 py-0.5",
+        className
+      )}
+    >
+      {children}
+    </span>
+  );
+};
+
+const CARDS = [
+  {
+    id: 0,
+    name: "Manu Arora",
+    designation: "Senior Software Engineer",
+    content: (
+      <p>
+        These cards are amazing, <Highlight>I want to use them</Highlight> in my
+        project. Framer motion is a godsend ngl tbh fam 🙏
+      </p>
+    ),
+  },
+  {
+    id: 1,
+    name: "Elon Musk",
+    designation: "Senior Shitposter",
+    content: (
+      <p>
+        I dont like this Twitter thing,{" "}
+        <Highlight>deleting it right away</Highlight> because yolo. Instead, I
+        would like to call it <Highlight>X.com</Highlight> so that it can easily
+        be confused with adult sites.
+      </p>
+    ),
+  },
+  {
+    id: 2,
+    name: "Tyler Durden",
+    designation: "Manager Project Mayhem",
+    content: (
+      <p>
+        The first rule of
+        <Highlight>Fight Club</Highlight> is that you do not talk about fight
+        club. The second rule of
+        <Highlight>Fight club</Highlight> is that you DO NOT TALK about fight
+        club.
+      </p>
+    ),
+  },
+];
